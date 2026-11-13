@@ -15,7 +15,8 @@ When you ask Claude for research, the skill has it:
 - **Give dissent equal scrutiny.** Contradicting evidence is searched for and held to the same verification standard as the main findings, then compared side by side.
 - **Separate fact from inference.** Interpretation is allowed, but it goes in a labeled Analysis section, never disguised as a finding.
 - **Report the gaps.** Every report includes a "What Was Not Found" section.
-- **Show the audit trail.** Every full report ends with a Validation Report on its own page: counts of claims by confidence level, the method used, a register of every claim and number with its label and source, the dissent check, red flags, exclusions, and the results of the quality checklist.
+- **Two versions in one file.** A full report comes first as a clean version, ready to review and publish, then as an Evidence Check version where every fact (F1, F2...), dissenting view (D1, D2...) and hypothesis carries its confidence label and score in red. Both carry an AI-assistance disclaimer.
+- **Show the audit trail.** The file ends with a Validation Report on its own page: counts of claims by confidence level, the method used, a register of every claim and number keyed to the same IDs, the dissent check, red flags, exclusions, and the results of the quality checklist.
 
 It has two depth modes: a quick verification for checking one or a few claims, which ends with a short validation summary, and a full structured research report.
 
@@ -33,6 +34,14 @@ From GitHub in Claude Code:
 ## Using it
 
 The skill activates on its own for research, fact-checking and "verified" or "sourced" requests. To call it directly, ask Claude to "use Bastean AI Evidence Check." For the best results, say what the research is for, the time frame, and your confidence threshold. `skills/evidence-check/references/research-request-guide.md` has a worked example.
+
+## Making sure it runs
+
+Claude decides on its own whether a request needs this skill, and for ordinary research questions it often starts researching without it. To make sure it runs:
+
+- Name it in the request: "Use Evidence Check to research..." or "Run this through Evidence Check."
+- Or add one line to your Claude profile preferences or to a project's instructions: "For any research request, use the Evidence Check skill."
+- If you have another research or fact-checking skill installed, name this one, or turn the other off, so the two don't compete.
 
 ## Adding your own field
 

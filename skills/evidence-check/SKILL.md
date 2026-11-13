@@ -1,15 +1,15 @@
 ---
 name: evidence-check
-description: Verified, cited research with anti-hallucination checks. Use for multi-source research, reports, due diligence, fact-checks, or any request for verified or sourced info. Not for quick lookups.
+description: Verified research with a validation report. Use for research reports, due diligence, fact-checks, or when asked to validate, verify or check the evidence, sources or claims. Not quick lookups.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   author: Brian Bastean, Bastean AI Consulting
 ---
 
 # Bastean AI Evidence Check
 
-**Version:** 1.0.0 (based on the Galileo Research Framework v3.0)
+**Version:** 1.1.0 (based on the Galileo Research Framework v3.0)
 **Foundation:** the Galileo test (truth over consensus) plus anti-hallucination research protocols
 
 This edition is topic-neutral. It works for any research domain. Domain-specific rules (for example, industry regulators, evidence hierarchies or pricing standards) belong in optional domain modules; see the end of this file.
@@ -69,7 +69,7 @@ Never write as if you fetched a page you did not fetch. That single rule prevent
 Match the output to the request:
 
 - **Quick verification** (one claim or a handful): for each claim give a verdict (VERIFIED / SUPPORTED / REPORTED / UNVERIFIED / NOT FOUND), the supporting quote and link, a numeric confidence rating, and any contradicting evidence. Skip the full report structure, but end with a short validation summary (Section 6.4).
-- **Standard research report**: use the full structure in Part 6, including the Validation Report on its own page at the end.
+- **Standard research report**: one file holding a clean version, then the Evidence Check version, then the Validation Report (Part 6).
 
 If the user hasn't said which they want and the scope is unclear, ask.
 
@@ -350,19 +350,45 @@ If direct evidence doesn't exist, say so. The absence of information is itself a
 
 ## PART 6: REQUIRED OUTPUT STRUCTURE
 
-### 6.1 Standard Report Format
+### 6.1 One File, Two Versions
 
-1. **Executive Summary** — 2–3 paragraphs of key findings with confidence levels
-2. **Detailed Findings** — by theme or question; each with a classification, and a numeric rating for key claims
-3. **Supporting Evidence** — quotes with links, quote-to-interpretation mapping
-4. **Case Studies / Examples** — if requested, verified the same way
-5. **Analysis** (optional) — clearly labeled interpretation and hypotheses, kept apart from findings
-6. **Dissenting Views / Contradictory Evidence** — with the credibility comparison table
-7. **What Was Not Found** — mandatory
-8. **Source Reference List** — all sources by category, with type and date
-9. **Validation Report** — mandatory, always last, always starting on a new page (Section 6.3)
+A standard report is delivered as one file with three parts, in this order, each starting on a new page (page breaks as described in Section 6.3):
 
-Length follows the user's request. The Validation Report doesn't count toward a requested length limit; it is the audit trail for the report, not part of its argument.
+1. **Clean version**: the report a reader could review and publish as is
+2. **Evidence Check version**: the same report with every claim labeled and scored
+3. **Validation Report**: the audit trail (Section 6.3)
+
+Write the Evidence Check version first, then derive the clean version from it by removing the labels. That keeps the two in step: both must make the same claims, with the same numbers, the same sources and the same level of certainty. The clean version drops the tags, not the caveats. A single-source or low-confidence finding still reads as tentative in plain words ("one 2024 trial found..."), and nothing UNVERIFIED appears in either version.
+
+If the user asks for only one version, give them that one.
+
+**Report sections** (both versions use the same sections in the same order):
+
+1. **Executive Summary**: 2–3 paragraphs of key findings
+2. **Detailed Findings**: by theme or question
+3. **Supporting Evidence**: quotes with links, quote-to-interpretation mapping
+4. **Case Studies / Examples**: if requested, verified the same way
+5. **Analysis** (optional): interpretation and hypotheses, kept apart from findings
+6. **Dissenting Views / Contradictory Evidence**
+7. **What Was Not Found**: mandatory; in the clean version it may be titled "Limitations and Open Questions"
+8. **Source Reference List**: all sources by category, with type and date
+
+**Disclaimer (both versions).** Directly under each version's title, include a short, plain disclaimer, for example: "This report was prepared with AI assistance. It is for educational and informational purposes, may contain errors, and is not a substitute for professional advice. Check important facts against the cited sources."
+
+**Clean version.** Directly under its title, add one line in red: "Clean version. The Evidence Check version follows." The reader deletes this line before publishing. Otherwise the clean version has no claim labels, dissent labels, confidence labels, confidence scores or credibility tables. Citations and the source list stay, because a publishable report still needs them.
+
+**Evidence Check version.** The same report with labels in red, placed right after the sentence or table row they apply to:
+- **Facts:** `[F1 · VERIFIED · 9/10]`, `[F2 · SUPPORTED · 7/10]`, `[F3 · REPORTED · 5/10]`, numbered in order through the whole report
+- **Dissenting views:** `[D1 · SUPPORTED · 6/10]`, `[D2 ...]`, numbered separately
+- **Derived figures:** `[F4 · DERIVED]`, with the calculation shown
+- **Hypotheses and analysis:** `[H1 · ANALYSIS · 4/10]`
+- The Dissenting Views section keeps its credibility comparison table, and the "Single-source finding" and "DATED" flags stay
+
+Each ID is used once and matches its row in the Validation Report's claim register.
+
+**Red, by format:** red font color (#C00000) in Word, PDF, HTML and document editors. Chat and plain Markdown can't show color, so there the labels appear as bold bracketed text and the clean-version note as a bold line.
+
+Length follows the user's request and applies to the clean version. The Evidence Check version and the Validation Report don't count toward a length limit; they are the audit trail, not part of the argument.
 
 ### 6.2 Mandatory "What Was Not Found" Section
 
@@ -379,9 +405,9 @@ If everything was answered: "All research questions were addressed with VERIFIED
 
 ### 6.3 Validation Report
 
-The Validation Report lets a reader audit the research without redoing it. It's the last section of every standard report, it starts on a new page, and it's titled **Validation Report**.
+The Validation Report lets a reader audit the research without redoing it. It's the last part of every standard report file, after the Evidence Check version, it starts on a new page, and it's titled **Validation Report**.
 
-**Starting it on a new page.** Use the page break that the output format supports:
+**Starting a new page.** The Evidence Check version and the Validation Report each start on a new page. Use the page break that the output format supports:
 - Word (.docx): a hard page break immediately before the Validation Report heading
 - PDF, HTML or anything printed: `break-before: page` on the section (or the generator's equivalent)
 - A document editor or artifact with page breaks: that editor's page break
@@ -409,10 +435,10 @@ Follow the table with one or two sentences on overall reliability, for example h
 
 **C. Claim register.** One row for every factual claim and every number in the report:
 
-| # | Claim (short form) | Report section | Label | Confidence (1–10) | Independent sources | Single-source? | Primary source |
-|---|--------------------|----------------|-------|-------------------|---------------------|----------------|----------------|
+| ID | Claim (short form) | Report section | Label | Confidence (1–10) | Independent sources | Single-source? | Primary source |
+|----|--------------------|----------------|-------|-------------------|---------------------|----------------|----------------|
 
-Keep every row, even in a long report; group rows by report section if that helps reading. Don't sample or summarize the register.
+Use the same IDs as the Evidence Check version (F1, D1, H1 and so on). Keep every row, even in a long report; group rows by report section if that helps reading. Don't sample or summarize the register.
 
 **D. Dissent parity check.** For each dissenting view: its label, its source count, and whether it was stronger, equal or weaker than the finding it challenges.
 
@@ -422,7 +448,7 @@ Keep every row, even in a long report; group rows by report section if that help
 
 **G. Quality checks.** The result of the Part 7 checklist. State "All checks met," or list each check that wasn't met and why.
 
-**Before finalizing, reconcile the register with the report.** Every claim in the body must appear in the register, and every register row must match what the body says, with the same label and the same number. A mismatch means one of the two is wrong; fix it before delivering.
+**Before finalizing, reconcile all three parts.** Every labeled claim in the Evidence Check version must appear in the register with the same ID, label and number, and the clean version must make the same claims with the same numbers. A mismatch means one of them is wrong; fix it before delivering.
 
 ### 6.4 Validation Summary for Quick Verifications
 
@@ -466,8 +492,11 @@ Before finalizing, confirm:
 - [ ] Red flags called out
 - [ ] "What Was Not Found" complete
 - [ ] No prohibited practices
-- [ ] Validation Report is the last section and starts on a new page (or after a horizontal rule in chat)
-- [ ] Claim register reconciled with the report body: same claims, labels and numbers
+- [ ] File order is clean version, Evidence Check version, Validation Report, each starting on a new page (or after a horizontal rule in chat)
+- [ ] Both versions carry the AI-assistance disclaimer; the clean version has the red "Clean version" note
+- [ ] Clean version has no F/D/H labels, confidence labels or scores, but keeps its citations and its plain-language caveats
+- [ ] Evidence Check labels are in red, numbered once each, and match the claim register
+- [ ] Clean and Evidence Check versions make the same claims with the same numbers
 
 ---
 
