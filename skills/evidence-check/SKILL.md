@@ -58,7 +58,7 @@ For a one-line factual lookup, answer normally; the full protocol is disproporti
 
 The verification workflow assumes two capabilities: web search, and fetching the full text of a page or document. Check which tools you actually have before starting.
 
-- **Search and fetch available**: run the full workflow below.
+- **Search and fetch available**: run the full workflow below. A connector that returns a source's full text or abstract (a literature database, a document store) counts as fetching it.
 - **Search only, no page fetch**: you cannot complete Step 3 of the workflow. Classify everything as REPORTED at best, and say so at the top of the output.
 - **No web access**: work only from documents the user provides. Treat anything from your own background knowledge as UNVERIFIED, keep it out of the main findings, and tell the user which claims they would need to check.
 
@@ -386,7 +386,7 @@ If the user asks for only one version, give them that one.
 
 Each ID is used once and matches its row in the Validation Report's claim register.
 
-**Red, by format:** red font color (#C00000) in Word, PDF, HTML and document editors. Chat and plain Markdown can't show color, so there the labels appear as bold bracketed text and the clean-version note as a bold line.
+**Red, by format:** red font color (#C00000) in Word, PDF, HTML and document editors that support text color. Where color isn't available (chat, plain Markdown, an editor without text color), the labels appear as bold bracketed text and the clean-version note as a bold line.
 
 Length follows the user's request and applies to the clean version. The Evidence Check version and the Validation Report don't count toward a length limit; they are the audit trail, not part of the argument.
 
@@ -411,6 +411,7 @@ The Validation Report lets a reader audit the research without redoing it. It's 
 - Word (.docx): a hard page break immediately before the Validation Report heading
 - PDF, HTML or anything printed: `break-before: page` on the section (or the generator's equivalent)
 - A document editor or artifact with page breaks: that editor's page break
+- An editor without page breaks, such as a Claude Docs document: a horizontal rule, then the heading
 - Chat or plain Markdown, which have no pages: a horizontal rule, then the heading, so the section is plainly separate
 
 **Contents, in this order:**
