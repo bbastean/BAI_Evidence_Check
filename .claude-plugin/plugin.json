@@ -1,0 +1,20 @@
+{
+  "name": "bastean-ai-evidence-check",
+  "displayName": "Bastean AI Evidence Check",
+  "version": "1.0.0",
+  "description": "Verified, source-backed research for Claude: fetch-before-cite verification, source triangulation, confidence labels, strict number handling, equal scrutiny for dissenting evidence, and a Validation Report with a register of every claim at the end of each report. Topic-neutral, with a template for adding your own domain modules.",
+  "author": {
+    "name": "Brian Bastean, Bastean AI Consulting",
+    "url": "https://bastean.com"
+  },
+  "homepage": "https://bastean.com",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "fact-checking",
+    "verification",
+    "citations",
+    "anti-hallucination",
+    "due-diligence"
+  ]
+}
