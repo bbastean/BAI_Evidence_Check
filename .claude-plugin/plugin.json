@@ -16,5 +16,8 @@
     "citations",
     "anti-hallucination",
     "due-diligence"
-  ]
+  ],
+  "repository": "https://github.com/bbastean/BAI_Evidence_Check",
+  "supportUrl": "https://github.com/bbastean/BAI_Evidence_Check/issues",
+  "documentationUrl": "https://github.com/bbastean/BAI_Evidence_Check#readme"
 }
