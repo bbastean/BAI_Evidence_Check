@@ -3,13 +3,13 @@ name: evidence-check
 description: Verified research with a validation report. Use for research reports, due diligence, fact-checks, or when asked to validate, verify or check the evidence, sources or claims. Not quick lookups.
 license: Apache-2.0
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: Brian Bastean, Bastean AI Consulting
 ---
 
-# Bastean AI Evidence Check
+# Evidence Checker BAI
 
-**Version:** 1.1.0 (based on the Galileo Research Framework v3.0)
+**Version:** 1.2.0 (based on the Galileo Research Framework v3.0)
 **Foundation:** the Galileo test (truth over consensus) plus anti-hallucination research protocols
 
 This edition is topic-neutral. It works for any research domain. Domain-specific rules (for example, industry regulators, evidence hierarchies or pricing standards) belong in optional domain modules; see the end of this file.

@@ -1,4 +1,4 @@
-# Bastean AI Evidence Check
+# Evidence Checker BAI
 
 A research skill for Claude that holds every claim to a verification standard before it reaches the report. It is built for work where a wrong fact costs something: due diligence, policy and regulatory research, literature and market scans, fact-checking a document before it goes out, or comparing contested positions fairly.
 
@@ -22,25 +22,25 @@ It has two depth modes: a quick verification for checking one or a few claims, w
 
 ## Install
 
-From the Claude directory: search for "Bastean AI Evidence Check" and select Install.
+From the Claude directory: search for "Evidence Checker BAI" and select Install.
 
 From GitHub in Claude Code:
 
 ```
 /plugin marketplace add bbastean/BAI_Evidence_Check
-/plugin install bastean-ai-evidence-check@bastean-ai
+/plugin install evidence-checker-bai@bastean-ai
 ```
 
 ## Using it
 
-The skill activates on its own for research, fact-checking and "verified" or "sourced" requests. To call it directly, ask Claude to "use Bastean AI Evidence Check." For the best results, say what the research is for, the time frame, and your confidence threshold. `skills/evidence-check/references/research-request-guide.md` has a worked example.
+The skill activates on its own for research, fact-checking and "verified" or "sourced" requests. To call it directly, ask Claude to "use Evidence Checker." For the best results, say what the research is for, the time frame, and your confidence threshold. `skills/evidence-check/references/research-request-guide.md` has a worked example.
 
 ## Making sure it runs
 
 Claude decides on its own whether a request needs this skill, and for ordinary research questions it often starts researching without it. To make sure it runs:
 
-- Name it in the request: "Use Evidence Check to research..." or "Run this through Evidence Check."
-- Or add one line to your Claude profile preferences or to a project's instructions: "For any research request, use the Evidence Check skill."
+- Name it in the request: "Use Evidence Checker to research..." or "Run this through Evidence Checker."
+- Or add one line to your Claude profile preferences or to a project's instructions: "For any research request, use the Evidence Checker skill."
 - If you have another research or fact-checking skill installed, name this one, or turn the other off, so the two don't compete.
 
 ## Adding your own field

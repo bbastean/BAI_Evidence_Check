@@ -7,7 +7,7 @@
   "description": "Research and AI workflow plugins from Bastean AI Consulting.",
   "plugins": [
     {
-      "name": "bastean-ai-evidence-check",
+      "name": "evidence-checker-bai",
       "source": "./",
       "description": "Verified, source-backed research with confidence labels, triangulation and equal scrutiny for dissenting evidence."
     }
